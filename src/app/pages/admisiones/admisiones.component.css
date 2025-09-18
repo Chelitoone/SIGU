@@ -1,0 +1,36 @@
+/* Estilos para el botón de postulación */
+.organic-btn {
+  background-color: #38a169; /* Un verde más vibrante, similar a la clase text-success */
+  color: #fff;
+  border-radius: 50px; /* Bordes redondeados para un look 'orgánico' */
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.organic-btn:hover {
+  background-color: #2f855a; /* Un tono más oscuro al pasar el cursor */
+  transform: translateY(-2px); /* Un pequeño efecto de elevación */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mejora el estilo de los botones de descarga de PDF */
+.btn-outline-primary {
+  border-color: #4c8cff; /* Color de borde que coincide con el texto primary */
+  color: #4c8cff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #4c8cff;
+  color: #fff;
+  border-color: #4c8cff;
+}
+
+/* Ajustes para el texto lead */
+.card-text.lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}

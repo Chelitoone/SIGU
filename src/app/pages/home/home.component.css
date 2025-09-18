@@ -1,82 +1,44 @@
-.custom-carousel {
-  position: relative;
-  overflow: hidden;
-  height: 70vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
+/*
+ * Estilos para hacer el home más dinámico y consistente con el resto del sitio.
+ */
+
+/* Estilo para los íconos/imágenes dentro de las tarjetas */
+.card-icon {
+  max-width: 80px; /* Ajusta el tamaño de la imagen */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Efecto de zoom y sombra al pasar el mouse sobre las tarjetas */
+.card-zoom {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-zoom:hover {
+  transform: translateY(-10px); /* Eleva la tarjeta */
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; /* Aumenta la sombra para un efecto 3D */
+}
+
+/* Ajuste para que los botones se alineen en la parte inferior de las tarjetas */
+.card-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all 0.6s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card-text {
+  /* Permite que el texto ocupe el espacio disponible, ayudando a alinear el botón */
+  flex-grow: 1; 
 }
 
-.slide.active {
-  left: 0;
-  opacity: 1;
-}
-
-.carousel-content {
-  max-width: 600px;
-  text-align: center;
-}
-
-.carousel-img {
-  max-height: 132px;
-  margin-bottom: 20px;
-}
-
-.carousel-title {
-  font-size: 2.4rem;
+.btn {
+  /* Asegura que el botón tenga un ancho consistente si lo deseas */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: bold;
 }
 
-.carousel-text {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.btn-modern {
-  border-radius: 28px;
-  padding: 13px 26px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.22);
-  transition: all 0.3s ease-in-out;
-}
-
-.btn-modern:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.28);
-}
-
-/* Controles */
-.control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.control.prev { left: 10px; }
-.control.next { right: 10px; }
-
-.control:hover {
-  background: rgba(255, 255, 255, 0.5);
+/* Tipografía del encabezado para un mayor impacto visual */
+.display-4.fw-bold {
+  font-weight: 700 !important; /* Bootstrap a veces necesita !important para sobreescribir */
 }

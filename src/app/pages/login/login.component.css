@@ -1,0 +1,165 @@
+/*
+  PASO 2: ESTILO PARA EL NUEVO CONTENEDOR
+  - Le damos un alto del 100% para que ocupe todo el espacio que su contenedor padre le dé.
+  - El contenedor padre (el router-outlet en tu app.component) será el que se encargue 
+    de gestionar el espacio entre el navbar y el footer.
+*/
+.login-page-container {
+  height: 100%;
+  width: 100%;
+  display: flex; /* Usamos flex para que su hijo (.split-container) pueda estirarse */
+}
+
+/* Estilo para la página completa
+  - CAMBIO CLAVE: Cambiamos height de '100vh' a '100%'.
+  - Ahora ocupará el 100% de su padre (.login-page-container) en lugar de 
+    el 100% de la ventana, solucionando los conflictos.
+  - Le agregamos 'width: 100%' para asegurar que se expanda horizontalmente.
+*/
+.split-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Panel izquierdo: Información 
+  - No necesita grandes cambios, la lógica anterior ya era correcta.
+  - Se centra el contenido vertical y horizontalmente.
+*/
+.info-panel {
+  flex-basis: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 3rem;
+  /* Añadimos un overflow: auto por si el contenido es muy largo en pantallas pequeñas */
+  overflow-y: auto;
+}
+
+/* Contenedor del contenido principal en el panel izquierdo */
+.info-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.info-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.info-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #e0e0e0;
+}
+
+.info-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.info-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.info-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Panel derecho: Formulario de Login
+  - Mantiene la proporción de 35% para sumar 100% con el panel izquierdo.
+*/
+.login-panel {
+  flex-basis: 35%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+}
+
+/*
+  Tarjeta del formulario
+  - AJUSTE: Aumenté el padding a '3rem' para darle más aire y que no se sienta tan apretado.
+  - AJUSTE: Aumenté el 'max-width' a 400px para que se vea un poco más robusto.
+*/
+.login-card {
+  width: 100%;
+  max-width: 400px; /* Aumentado para mejor proporción */
+  padding: 3rem;     /* Aumentado para más espacio interno */
+  border-radius: 12px; /* Un poco más de redondez para un look moderno */
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  box-shadow: none;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.login-btn {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.forgot-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.forgot-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

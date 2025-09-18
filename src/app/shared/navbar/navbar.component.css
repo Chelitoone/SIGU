@@ -1,0 +1,101 @@
+/* === ESTILOS GENERALES DEL NAVBAR === */
+.navbar-custom {
+  background-color: #1a1a1d; /* Un negro más suave que el de Bootstrap */
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #333; /* Un borde inferior sutil para separarlo del contenido */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Una sombra suave para darle profundidad */
+  transition: background-color 0.3s ease;
+}
+
+/* === ESTILO DE LA MARCA (SIGU) === */
+.navbar-custom .navbar-brand {
+  font-weight: 700; /* Letra más gruesa */
+  font-size: 1.5rem; /* Un poco más grande */
+  color: #f8f9fa; /* Color blanco */
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #0d6efd; /* Cambia a un color azul primario al pasar el mouse */
+}
+
+/* === ESTILOS DE LOS ENLACES DE NAVEGACIÓN === */
+.navbar-custom .nav-link {
+  color: #adb5bd; /* Un gris claro para los enlaces inactivos */
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0.5rem 0; /* Solo padding vertical */
+  position: relative; /* Necesario para el efecto de subrayado */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de subrayado que aparece al pasar el mouse */
+.navbar-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #0d6efd; /* Azul primario */
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+/* Al pasar el mouse, el enlace se vuelve más claro y aparece el subrayado */
+.navbar-custom .nav-link:hover {
+  color: #f8f9fa; /* Blanco */
+}
+
+.navbar-custom .nav-link:hover::after {
+  width: 100%; /* El subrayado se expande al 100% */
+}
+
+/* === ESTILO PARA EL ENLACE ACTIVO (LA PÁGINA ACTUAL) === */
+.navbar-custom .nav-link.active {
+  color: #ffffff; /* El enlace activo es completamente blanco */
+  font-weight: 700;
+}
+
+/* El enlace activo siempre muestra el subrayado */
+.navbar-custom .nav-link.active::after {
+  width: 100%;
+}
+
+
+/* === ESTILO DEL BOTÓN DE ACCIÓN (LOGIN) === */
+.navbar-custom .cta-login {
+  background-color: #0d6efd; /* Fondo azul primario */
+  color: #ffffff !important; /* Texto blanco (importante para sobreescribir otros estilos) */
+  padding: 0.5rem 1.25rem !important; /* Padding para que parezca un botón */
+  border-radius: 50px; /* Bordes completamente redondeados */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* El botón de login no necesita el efecto de subrayado */
+.navbar-custom .cta-login::after {
+  display: none;
+}
+
+/* Al pasar el mouse, el botón cambia de color y se "levanta" un poco */
+.navbar-custom .cta-login:hover {
+  background-color: #0b5ed7; /* Un azul un poco más oscuro */
+  color: #ffffff !important;
+  transform: translateY(-2px); /* Efecto de levantamiento */
+}
+
+/* El botón de login activo se ve igual que en hover */
+.navbar-custom .cta-login.active {
+  background-color: #0b5ed7;
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.5); /* Le da un brillo sutil */
+}
+
+/* === ESTILO DEL BOTÓN HAMBURGUESA (MÓVIL) === */
+.navbar-custom .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.2); /* Borde más sutil */
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}

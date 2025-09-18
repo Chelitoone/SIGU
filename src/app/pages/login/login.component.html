@@ -1,30 +1,57 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
-    <div class="card-body">
-      <h3 class="card-title text-center mb-4 text-primary">Logín</h3>
+<div class="login-page-container">
 
-      <!-- Campo Correo -->
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" id="email" class="form-control" placeholder="ejemplo@correo.com">
-      </div>
+  <div class="split-container">
 
-      <!-- Campo Contraseña -->
-      <div class="mb-3">
-        <label for="password" class="form-label">Contraseña</label>
-        <input type="password" id="password" class="form-control" placeholder="••••••••">
-      </div>
-
-      <!-- Botón de inicio -->
-    <div class="d-grid mb-3">
-  <button class="btn btn-primary" routerLink="/aspirante">Ingresar</button>
-</div>
-
-      <!-- Links -->
-      <div class="text-center">
-        <a href="#" class="d-block small mb-2">Crear usuario</a>
-        <a href="#" class="d-block small">He olvidado mi contraseña</a>
+    <div class="info-panel">
+      <div class="info-content">
+        <h2 class="info-title">👋 Bienvenido a SIGU</h2>
+        <p class="info-text">Un sistema diseñado para ti: aspirante, estudiante y profesores.</p>
+        
+        <div class="card info-box shadow">
+          <div class="card-body">
+            <h5 class="info-heading">✨ ¿Quieres hacer parte de nuestra familia?</h5>
+            <p class="info-text">
+              Si es tu primera vez, haz clic en el siguiente enlace para crear tu usuario y comenzar tu postulación.
+              Si ya tienes una cuenta, simplemente ingresa tus credenciales en el panel de la derecha.
+            </p>
+            <a routerLink="/crear-usuario" class="info-link">✍️ Crear Usuario →</a>
+          </div>
+        </div>
+        
+        <div class="card info-box shadow mt-3">
+          <div class="card-body">
+            <h5 class="info-heading">❓ ¿Problemas para iniciar sesión en tu cuenta?</h5>
+            <p class="info-text">
+              Si olvidaste tu contraseña o tienes problemas, por favor contacta a soporte para recibir asistencia.
+              El nivel de soporte es 24/7. Siempre estamos para ayudarte.
+              <br>
+              <a href="mailto:soporte@tata.com" class="info-link">✉️ soporteArrobaGmail.com</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="login-panel">
+      <div class="login-card shadow">
+        <h2 class="login-title">🔐 Acceso al Sistema</h2>
+        <form>
+          <div class="form-group mb-4">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" class="form-control" placeholder="ejemplo@correo.com">
+          </div>
+          <div class="form-group mb-4">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" class="form-control" placeholder="••••••••">
+          </div>
+          <div class="d-grid gap-2">
+            <button routerLink="/aspirante" type="submit" class="btn btn-primary login-btn">Ingresar</button>
+            <a routerLink="/recuperar-contrasena" class="forgot-link text-center mt-2">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
   </div>
 </div>

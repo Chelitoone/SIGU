@@ -1,4 +1,50 @@
-footer { 
-  a:hover { text-decoration: underline; }
-  .small { color: #444; }
+/* Contenedor principal del footer */
+.footer-custom {
+  background-color: #212529;
+  /* SOLUCIÓN AL ESPACIADO: Añadimos un margen superior de 3rem.
+    Esto empujará el footer hacia abajo, separándolo del contenido de tu home
+    o de cualquier otra página. ¡Este es el arreglo para que no se pegue!
+  */
+  margin-top: 3rem;
+
+  /* REDUCCIÓN DE TAMAÑO: Reducimos aún más la fuente para hacerlo súper compacto.
+    Pasamos de 0.85rem a 0.8rem.
+  */
+  font-size: 0.8rem; 
+
+  /* REDUCCIÓN DE TAMAÑO: Forzamos una altura de línea más apretada */
+  line-height: 1.4;
+}
+
+/* Títulos de las columnas */
+.footer-custom h5, .footer-custom h6 {
+  color: #f8f9fa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* REDUCCIÓN DE TAMAÑO: Reducimos el margen inferior de los títulos */
+  margin-bottom: 0.5rem;
+}
+
+/* Texto secundario */
+.footer-custom .text-muted {
+  color: #adb5bd !important;
+}
+
+/* Enlaces */
+.footer-custom a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Efecto hover (se mantiene igual) */
+.footer-custom a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+/* Barra inferior de copyright */
+.footer-bottom {
+  border-top: 1px solid #343a40;
+  color: #adb5bd;
 }
