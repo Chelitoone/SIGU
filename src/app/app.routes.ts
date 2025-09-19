@@ -1,5 +1,6 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
+import path from 'path';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -72,6 +73,12 @@ export const routes: Routes = [
     canMatch: [() => import('./services/admin.guard').then(g => g.adminOnlyGuard)],
     loadChildren: () =>
       import('./features/admin/admin.routes').then(m => m.ADMIN_ROUTES),
+  },
+  {
+
+  path: 'crear-usuario',
+  loadComponent: () =>
+    import('./crear-usuario/crear-usuario.component').then(m => m.CrearUsuarioComponent),
   },
 
   // 404 (Not Found)
