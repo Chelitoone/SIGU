@@ -1,44 +1,115 @@
-
 <div class="form-container">
-  <h2>Crear Usuario</h2>
+  <h2>📝 Crear Usuario</h2>
 
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
-    
-    <label>Nombre:</label>
-    <input type="text" formControlName="nombre" placeholder="Ingresa el nombre" />
-    <div *ngIf="usuarioForm.get('nombre')?.invalid && usuarioForm.get('nombre')?.touched">
-      ⚠ El nombre es obligatorio (mínimo 3 caracteres).
+
+    <!-- Rol -->
+    <label>👤 Rol:</label>
+    <select formControlName="rol">
+       <option value="">Seleccione un rol</option>
+      <option value="aspirante">📑 Aspirante</option>     
+      <option value="estudiante">🎓 Estudiante</option>
+      <option value="profesor">👨‍🏫 Profesor</option>
+    </select>
+    <div *ngIf="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched">
+      ⚠ Debe seleccionar un rol.
     </div>
 
-    <label>Cédula:</label>
-    <input type="text" formControlName="cedula" placeholder="Ingresa la cédula" />
-    <div *ngIf="usuarioForm.get('cedula')?.invalid && usuarioForm.get('cedula')?.touched">
+    <!-- ID -->
+    <label>🆔 ID:</label>
+    <input type="text" formControlName="id" placeholder="Ejemplo: 100234" />
+    <div *ngIf="usuarioForm.get('id')?.invalid && usuarioForm.get('id')?.touched">
       ⚠ Solo números son permitidos.
     </div>
 
-    <label>Correo:</label>
-    <input type="email" formControlName="correo" placeholder="ejemplo@correo.com" />
-    <div *ngIf="usuarioForm.get('correo')?.invalid && usuarioForm.get('correo')?.touched">
-      ⚠ Ingresa un correo válido.
+    <!-- Nombre Completo -->
+    <label>👤 Nombre Completo:</label>
+    <input type="text" formControlName="nombre_completo" placeholder="Ingresa el nombre completo" />
+    <div *ngIf="usuarioForm.get('nombre_completo')?.invalid && usuarioForm.get('nombre_completo')?.touched">
+      ⚠ El nombre es obligatorio (mínimo 3 caracteres).
     </div>
 
-    <label>Rol:</label>
-    <select formControlName="rol">
-      <option value="">Seleccione un rol</option>
-      <option value="estudiante">Estudiante</option>
-      <option value="profesor">Profesor</option>
-      <option value="administrativo">Administrativo</option>
-    </select>
+    <!-- Edad -->
+    <label>🎂 Edad:</label>
+    <input type="number" formControlName="edad" placeholder="Ejemplo: 20" />
+    <div *ngIf="usuarioForm.get('edad')?.invalid && usuarioForm.get('edad')?.touched">
+      ⚠ La edad debe ser mayor o igual a 16.
+    </div>
 
-    <label>Programa:</label>
-    <select formControlName="programa">
-        <option value="">Seleccione un programa</option>
-        <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
-        <option value="Administración de Empresas">Administración de Empresas</option>
-        <option value="Ingenieria Civil">Ingenieria Civil</option>
-        <option value="Veterinaria">Medicina</option>
-        <option value="Matematicas">Matematicas</option>
-    </select> 
-    <button type="submit" [disabled]="usuarioForm.invalid">Crear Usuario</button>
+    <!-- Celular -->
+    <label>📱 Celular:</label>
+    <input type="text" formControlName="celular" placeholder="Ejemplo: 3001234567" />
+    <div *ngIf="usuarioForm.get('celular')?.invalid && usuarioForm.get('celular')?.touched">
+      ⚠ Ingrese un número de celular válido.
+    </div>
+
+    <!-- Sexo -->
+    <label>⚧ Sexo:</label>
+    <select formControlName="sexo">
+      <option value="">Seleccione</option>
+      <option value="masculino">👨 Masculino</option>
+      <option value="femenino">👩 Femenino</option>
+      <option value="otro">🌈 Otro</option>
+    </select>
+    <div *ngIf="usuarioForm.get('sexo')?.invalid && usuarioForm.get('sexo')?.touched">
+      ⚠ Debe seleccionar un sexo.
+    </div>
+
+    <!-- Correo Electrónico -->
+    <label>📧 Correo Electrónico:</label>
+    <input type="email" formControlName="correo" placeholder="ejemplo@correo.com" />
+    <div *ngIf="usuarioForm.get('correo')?.invalid && usuarioForm.get('correo')?.touched">
+      ⚠ Ingrese un correo válido.
+    </div>
+
+    <!-- Programa Académico -->
+<label>📚 Programa Académico:</label>
+<select formControlName="programa">
+  <option value="">Seleccione un programa</option>
+
+  <!-- Facultad de Ingeniería y Arquitectura -->
+  <option value="Ingeniería de Sistemas">💻 Ingeniería de Sistemas</option>
+  <option value="Ingeniería Civil">🏗️ Ingeniería Civil</option>
+  <option value="Arquitectura">📐 Arquitectura</option>
+  <option value="Ingeniería Mecatrónica">🤖 Ingeniería Mecatrónica</option>
+  <option value="Ingeniería de Telecomunicaciones">📡 Ingeniería de Telecomunicaciones</option>
+
+  <!-- Facultad de Ciencias de la Salud -->
+  <option value="Medicina">🩺 Medicina</option>
+  <option value="Enfermería">👩‍⚕️ Enfermería</option>
+  <option value="Nutrición y Dietética">🍎 Nutrición y Dietética</option>
+  <option value="Psicología Clínica">🧠 Psicología Clínica</option>
+  <option value="Fisioterapia">💪 Fisioterapia</option>
+
+  <!-- Facultad de Ciencias Jurídicas y Sociales -->
+  <option value="Derecho">⚖️ Derecho</option>
+  <option value="Ciencia Política">🗳️ Ciencia Política</option>
+  <option value="Trabajo Social">🤝 Trabajo Social</option>
+
+  <!-- Facultad de Artes Escénicas -->
+  <option value="Teatro">🎭 Teatro</option>
+  <option value="Música">🎶 Música</option>
+  <option value="Danza">🩰 Danza</option>
+
+  <!-- Facultad de Ciencias Naturales -->
+  <option value="Biología">🌿 Biología</option>
+  <option value="Química">🔬 Química</option>
+  <option value="Geología">🌎 Geología</option>
+</select>
+
+<div *ngIf="usuarioForm.get('programa')?.invalid && usuarioForm.get('programa')?.touched">
+  ⚠ Debe seleccionar un programa académico.
+</div>
+
+
+    <!-- Contraseña -->
+    <label>🔑 Contraseña:</label>
+    <input type="password" formControlName="password" placeholder="Crea una contraseña segura" />
+    <div *ngIf="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
+      ⚠ La contraseña debe tener al menos 6 caracteres.
+    </div>
+
+    <!-- Botón -->
+    <button type="submit" [disabled]="usuarioForm.invalid">✅ Crear Usuario</button>
   </form>
 </div>
