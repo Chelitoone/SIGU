@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Lista de Usuarios</h2>
+
+  <table border="1" cellpadding="6" cellspacing="0" style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Cédula</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Programa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios">
+        <td>{{ u.id }}</td>
+        <td>{{ u.nombre }}</td>
+        <td>{{ u.cedula }}</td>
+        <td>{{ u.correo }}</td>
+        <td>{{ u.rol }}</td>
+        <td>{{ u.programaid }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

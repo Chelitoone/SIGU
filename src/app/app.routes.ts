@@ -81,7 +81,13 @@ export const routes: Routes = [
     import('./crear-usuario/crear-usuario.component').then(m => m.CrearUsuarioComponent),
   },
 
+  {
+    path: 'listar-usuarios',
+    loadComponent: () =>
+      import('./listar-usuarios/listar-usuarios.component').then(m => m.ListarUsuariosComponent),
+  }
   // 404 (Not Found)
+  ,
   {
     path: '**',
     loadComponent: () =>
