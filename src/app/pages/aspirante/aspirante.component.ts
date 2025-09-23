@@ -28,7 +28,7 @@ export class aspiranteComponent implements OnInit {
   editingIndex: number | null = null;
 
   constructor() {
-    // Mantener ciclo por defecto tal como pediste
+    // Mantener ciclo por defecto 
     this.cicloLectivo = new FormControl('2025-2');
     this.nombre = new FormControl('', Validators.required);
     this.cedula = new FormControl('', Validators.required);

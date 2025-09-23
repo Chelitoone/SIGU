@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="form-container">
   <h2>Crear Usuario</h2>
 
@@ -31,7 +31,7 @@
     </select>
 
     <label>Programa:</label>
-    <select formControlName="programa">
+    <select formControlName="programaId">
         <option value="">Seleccione un programa</option>
         <option value="Ingeniería en Sistemas">Ingenieria en Sistemas</option>
         <option value="Ingenieria Civil">Ingeniera Civil</option>
@@ -40,5 +40,71 @@
         <option value="Ingeniera de Telecomunicaciones">Ingeniera de Telecomunicaciones</option>
     </select> 
     <button type="submit" [disabled]="usuarioForm.invalid">Crear Usuario</button>
+  </form>
+</div> -->
+<!-- <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+  <label>Nombre</label>
+  <input type="text" formControlName="nombre" />
+
+  <label>Correo</label>
+  <input type="email" formControlName="correo" />
+
+  <label>Cédula</label>
+  <input type="text" formControlName="cedula" />
+
+  <label>Password</label>
+  <input type="password" formControlName="passwordhash" />
+
+  <label>Rol</label>
+  <select formControlName="rol">
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+  </select>
+
+  <label>Programa (opcional)</label>
+  <input type="number" formControlName="programaid" />
+
+  <button type="submit" [disabled]="usuarioForm.invalid">Crear Usuario</button>
+</form> -->
+<div class="container mt-4">
+  <h3>Registrar Usuario</h3>
+  <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input formControlName="nombre" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Correo</label>
+      <input formControlName="correo" class="form-control" type="email" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Cédula</label>
+      <input formControlName="cedula" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input formControlName="passwordhash" class="form-control" type="password" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Programa</label>
+      <input formControlName="programaid" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Rol</label>
+      <select formControlName="rol" class="form-control" required>
+        <option value="admin">Admin</option>
+        <option value="docente">Docente</option>
+        <option value="estudiante">Estudiante</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
   </form>
 </div>
