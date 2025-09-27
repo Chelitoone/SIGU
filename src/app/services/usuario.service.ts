@@ -26,11 +26,7 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.apiUrl, usuario);
   }
  
-  // actualizarUsuario(id: number, usuario: Usuario): Observable<void> {
-  //   return this.http.put<void>(`${this.apiUrl}/${id}`, usuario);
 
-  // }
-  //editar usuario
   editarUsuario(id: number, usuario: any) {
   return this.http.put<any>(`http://localhost:5122/api/usuarios/${id}`, usuario);
 }
@@ -43,4 +39,14 @@ eliminarUsuario(id: number) {
   obtenerUsuarios(): Observable<Usuario[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  //APARTADO PARA LOS PROGRAMAS
+  getProgramas() {
+  return this.http.get<any[]>(`${this.apiUrl}/programas`);
+}
+
+getUsuariosPorPrograma(programaId: number) {
+  return this.http.get<any[]>(`${this.apiUrl}/programas/${programaId}/usuarios`);
+}
+
 }
