@@ -1,1 +1,44 @@
-<p>usuarios-programa works!</p>
+    <div class="container mt-4">
+    <h3>Programas y Usuarios Registrados</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID Programa</th>
+            <th>Nombre Programa</th>
+            <th>Cantidad Usuarios</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let prog of programasConUsuarios; let i = index">
+            <!-- Fila principal -->
+            <tr>
+            <td>{{ prog.programaId }}</td>
+            <td>{{ prog.programaNombre }}</td>
+            <td>{{ prog.usuarios.length }}</td>
+            <td>
+                <button class="btn btn-sm btn-info" type="button" 
+                        data-bs-toggle="collapse" 
+                        [attr.data-bs-target]="'#usuarios-' + i">
+                Ver usuarios
+                </button>
+            </td>
+            </tr>
+
+            <!-- Fila colapsable -->
+            <tr class="collapse bg-light" [id]="'usuarios-' + i">
+            <td colspan="4">
+                <ul *ngIf="prog.usuarios.length > 0; else sinUsuarios">
+                <li *ngFor="let user of prog.usuarios">
+                    {{ user.usuarioNombre }} ({{ user.usuarioCorreo }}) - {{ user.usuarioRol }}
+                </li>
+                </ul>
+                <ng-template #sinUsuarios>
+                <em>No hay usuarios registrados en este programa</em>
+                </ng-template>
+            </td>
+            </tr>
+        </ng-container>
+        </tbody>
+    </table>
+    </div>

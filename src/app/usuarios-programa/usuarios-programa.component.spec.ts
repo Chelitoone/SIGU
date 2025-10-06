@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { UsuariosProgramaComponent } from './usuarios-programa.component';
+@Component({
+  selector: 'app-programas-usuarios',
+  templateUrl: './usuarios-programa.component.html'
+})
+export class ProgramasUsuariosComponent implements OnInit {
+  programasConUsuarios: any[] = [];
 
-describe('UsuariosProgramaComponent', () => {
-  let component: UsuariosProgramaComponent;
-  let fixture: ComponentFixture<UsuariosProgramaComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [UsuariosProgramaComponent]
-    })
-    .compileComponents();
 
-    fixture = TestBed.createComponent(UsuariosProgramaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  constructor(private http: HttpClient) {}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+    this.cargarProgramasConUsuarios();
+  }
+
+  cargarProgramasConUsuarios() {
+    this.http.get<any[]>('http://localhost:5122/api/programas/con-usuarios')
+      .subscribe(data => this.programasConUsuarios = data);
+  }
+}

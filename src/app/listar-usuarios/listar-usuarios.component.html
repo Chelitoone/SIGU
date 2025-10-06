@@ -1,46 +1,4 @@
-<!-- 
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Nombre</th>
-      <th>Correo</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let usuario of usuarios">
-       Si está en edición 
-      <ng-container *ngIf="usuarioEnEdicionId === usuario.id; else mostrarFila">
-        <td>{{ usuario.id }}</td>
-        <td><input [(ngModel)]="usuarioEditado.nombre" /></td>
-        <td><input [(ngModel)]="usuarioEditado.correo" /></td>
-        <td><input [(ngModel)]="usuarioEditado.rol" /></td>
-        <td><input [(ngModel)]="usuarioEditado.programaid" /></td>
-    
-        <td>
-          <button class="btn btn-success btn-sm" (click)="guardarEdicion()">Guardar</button>
-          <button class="btn btn-secondary btn-sm" (click)="cancelarEdicion()">Cancelar</button>
-        </td>
-      </ng-container>
-
-      -- Si NO está en edición -->
-      <!-- <ng-template #mostrarFila>
-        <td>{{ usuario.id }}</td>
-        <td>{{ usuario.nombre }}</td>
-        <td>{{ usuario.correo }}</td>
-        <td>{{ usuario.rol }}</td>
-        <td>{{ usuario.programaid }}</td>
-
-        <td>
-          <button class="btn btn-primary btn-sm" (click)="editar(usuario)">Editar</button>
-          <button class="btn btn-danger btn-sm" (click)="eliminar(usuario.id)">Eliminar</button>
-        </td>
-      </ng-template>
-    </tr>
-  </tbody>
-</table>    -->
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -61,6 +19,7 @@
         <td><input [(ngModel)]="usuarioEditado.nombre" class="form-control form-control-sm" /></td>
         <td><input [(ngModel)]="usuarioEditado.correo" class="form-control form-control-sm" /></td>
         <td><input [(ngModel)]="usuarioEditado.programa" class="form-control form-control-sm" /></td>
+        
         <td>
           <select [(ngModel)]="usuarioEditado.rol" class="form-control form-control-sm">
             <option value="admin">Admin</option>
@@ -74,7 +33,7 @@
         </td>
       </ng-container>
 
-      <!-- Si NO está en edición -->
+     
       <ng-template #mostrarFila>
         <td>{{ usuario.id }}</td>
         <td>{{ usuario.nombre }}</td>

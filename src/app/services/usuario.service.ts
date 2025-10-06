@@ -40,12 +40,15 @@ eliminarUsuario(id: number) {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+// CREACION FORMULARIO 
+
   //APARTADO PARA LOS PROGRAMAS
+
   getProgramas() {
   return this.http.get<any[]>(`${this.apiUrl}/programas`);
 }
 
-getUsuariosPorPrograma(programaId: number) {
+getUsuariosPorProgramaId(programaId: number) {
   return this.http.get<any[]>(`${this.apiUrl}/programas/${programaId}/usuarios`);
 }
 
