@@ -94,6 +94,7 @@ export class ListarUsuariosComponent implements OnInit {
   usuarios: any[] = [];
   usuarioEnEdicionId: number | null = null;
   usuarioEditado: any = {};
+  programaEditado: any = {}
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -104,9 +105,9 @@ export class ListarUsuariosComponent implements OnInit {
   cargarUsuarios() {
     this.usuarioService.obtenerUsuarios().subscribe({
       next: (res) => {
-        // res ya debe traer "programaNombre" desde el backend
+       
         this.usuarios = res;
-        console.log("Usuarios cargados:", this.usuarios); // 👈 para debug
+        console.log("Usuarios cargados:", this.usuarios); // Depuración
       },
       error: (err) => {
         console.error('Error cargando usuarios', err);
@@ -157,4 +158,17 @@ export class ListarUsuariosComponent implements OnInit {
       });
     }
   }
+
+
+buscarPorTipo() {
+  this.usuarioService.getUsuariosPorTipo(this.tipoSeleccionado).subscribe({
+    next: (data) => {
+      this.usuarios = data;
+    },
+    error: (err) => console.error(err)
+  });
+}
+  tipoSeleccionado: string = '';
+
+
 }

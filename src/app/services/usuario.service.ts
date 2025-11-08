@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -17,7 +17,7 @@ export interface Usuario {
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:5122/api/Usuarios'; // tu backend .NET
+  private apiUrl = 'http://localhost:5122/api/Usuarios'; // mi backend .NET
 
   constructor(private http: HttpClient) {}
 
@@ -44,12 +44,21 @@ eliminarUsuario(id: number) {
 
   //APARTADO PARA LOS PROGRAMAS
 
+  buscarUsuario(nombre: string) {
+    const params = new HttpParams ().set('nombre', nombre);
+    return this.http.get<any[]>(`${this.apiUrl}?nombre=${nombre}`);
+  }
+
   getProgramas() {
   return this.http.get<any[]>(`${this.apiUrl}/programas`);
 }
 
 getUsuariosPorProgramaId(programaId: number) {
   return this.http.get<any[]>(`${this.apiUrl}/programas/${programaId}/usuarios`);
+}
+
+getUsuariosPorTipo(tipoPrograma: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/usuarios/por-tipo/${tipoPrograma}`);
 }
 
 }

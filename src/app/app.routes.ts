@@ -186,8 +186,9 @@ export const routes: Routes = [
   {
     path: 'usuarios-programa', //  aquí se listan los usuarios por programa
     loadComponent: () =>
-      import('./usuarios-programa/usuarios-programa.component').then(m => m.ProgramasUsuariosComponent),
+      import('./usuarios-programa/usuarios-programa.component').then(m => m.UsuariosProgramaComponent),
   },
+ 
   // 404 (Not Found)
   {
     path: '**',

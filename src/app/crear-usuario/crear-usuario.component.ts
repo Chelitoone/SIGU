@@ -72,7 +72,8 @@ export class UsuariosFormComponent implements OnInit {
       cedula: ['', Validators.required],
       passwordhash: ['', Validators.required],
       rol: ['', Validators.required],
-      programaid: [null, Validators.required]
+      programaid: [null, Validators.required],
+      tipoPrograma:['', Validators.required] 
     });
   }
 
@@ -96,21 +97,39 @@ cargarProgramas() {
       }
     });
 }
-
-  onSubmit() {
-    if (this.usuarioForm.valid) {
-      this.usuarioService.crearUsuario(this.usuarioForm.value).subscribe({
-        next: (res: any) => {
-          alert(res.message || 'Usuario creado con éxito ✅');
-          this.usuarioForm.reset();
-        },
-        error: (err) => {
-          alert('Error al crear usuario: ' + (err.error?.message || 'Error desconocido'));
-          console.error(err);
-        }
-      });
-    } else {
-      alert('Por favor complete todos los campos requeridos');
-    }
+onSubmit() {
+  if (this.usuarioForm.valid) {
+    console.log('Datos a enviar:', this.usuarioForm.value); // 
+    this.usuarioService.crearUsuario(this.usuarioForm.value).subscribe({
+      next: (res: any) => {
+        alert(res.message || 'Usuario creado con éxito ✅');
+        this.usuarioForm.reset();
+      },
+      error: (err) => {
+        alert('Error al crear usuario: ' + (err.error?.message || 'Error desconocido'));
+        console.error(err);
+      }
+    });
+  } else {
+    alert('Por favor complete todos los campos requeridos');
   }
+}
+
+  // onSubmit() {
+  //   if (this.usuarioForm.valid) {
+  //     this.usuarioService.crearUsuario(this.usuarioForm.value).subscribe({
+  //       next: (res: any) => {
+  //         alert(res.message || 'Usuario creado con éxito ✅');
+  //         this.usuarioForm.reset();
+  //       },
+  //       error: (err) => {
+  //         alert('Error al crear usuario: ' + (err.error?.message || 'Error desconocido'));
+  //         console.error(err);
+  //       }
+  //     });
+  //   } else {
+  //     alert('Por favor complete todos los campos requeridos');
+  //   }
+  // }
+
 }
